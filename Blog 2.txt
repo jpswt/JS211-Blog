@@ -1,0 +1,123 @@
+QUESTION 1) Describe one thing you're learning in class today.
+
+Today we learned about truthy and falsy values.  Falsy values are as follows:
+
+false
+The number zero
+Empty string “”
+Null 
+Undefined
+NaN
+
+Truthy values are everything else.  Examples:
+true
+{}
+[]
+42
+"0"
+"false"
+new Date()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) What is the difference between == and ===  ?
+
+Double equals (==) is a comparison operator, which transforms the operands having the same type before comparison.
+
+Triple equals (===) is a strict equality operator, in which both the value and type must be equal.  
+
+For example:
+
+2 == '2' is true because JavaScript will convert any string to a number.  However, 2 === '2' will be false because the number 2 is not the same input type 
+at a string of “2”
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTIN 3) What is the value of foo? var foo = 10 + '20';
+
+Foo is a placeholder for a value that can change, depending on conditions, or information passed to the program.
+
+Value in this case would be ‘1020’ because of the string concat operation. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) Describe what a terminal application is.
+
+A terminal application, is a computer program that emulates a video terminal within some other display architecture. Though typically synonymous with a 
+shell or text terminal, the term terminal covers all remote terminals, including graphical interfaces.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) What is the ternary operator?
+
+The ternary operator can be used in place of an if/else statement.  The format can be expressed as :
+
+Condition ? expressionIfTrue : expressionIfFalse. 
+
+Example :
+
+Let age = 21;
+Let output;
+
+If (age >20) {
+	output = “You are of legal drinking age”
+}else {
+output = “You are not of legal drinking age”  
+}
+}
+
+With ternary, it can be done as follows:
+Let output = (age > 20) ? “You are of legal drinking age” : “You are not of legal drinking age”
+
+In practical terms, the "?" replaces "if" and the ":" replaces "else"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What are some ways to ensure that your website design or web application is accessible and user-friendly?
+
+Creating a website that is responsive from mobile to tablet and desktop presents a good user experience.  Using alt tags for images helps screen readers 
+determine what an image is showing.  Allowing for your site to be navigated by keyboard also aids in usability.  Optimizing photos and monitioring the network 
+performance also aids the user experience.  Don't want long load times because your background image is too big and takes too long to render.  
+
+In addtion, providing the correct implementation of css and javascript files in the html file also helps with user experience.  
+
+Generally we place the JS before the </body> tag because if we place inbetween the <head></head> tags, because of instances in which the javascript can 
+negatively impace the rendering of the html. Let's say we have javascript code that changes html elements as soon as the JS loads. If the html elements 
+are rendered yeat, it could cause the JS to error out or not work properly. In addition, if you have a lot of JS it could significantly slow down the 
+load time of your page as it will load all of the JS before any html.
+
+Exepctions to the JS would be placing it in the head if your script is modifying how the browser renders the html page, such as a script that would affect 
+the classes in the <html> tag before a page load.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) What are your favorite features of HTML5, and how have you implemented them in your front-end development projects?
+
+Fovorite feature is the semantic markup, especially for header, nav and footer.  It is much cleaner and an easier flow than a bunch of <div> tags with
+classes or IDs.  Defintiely improves the ability to clearly structure your website and allows for screen readers to easily follow the structure of the site.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) How do you structure your CSS and JavaScript to make it easier for other developers to work with?
+
+First off, I try to comment everything and what it does to make it easy for someone to see the code and understand what it does.  Secondly, I structure my css
+to follow the structure of the html file.  Starting with general root styles first, next I create custom properties I would use throught out the html file, 
+then I would style body and progess through header -> main - footer.  Styling classes and tags to achieve the desired layout.  
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 9) What's your process for addressing browser-specific rendering problems? Do you find that a certain browser is more challenging to work with than 
+others?
+
+First off, I use a css reset to reset default values to avoid things like different default margin, padding and font size different browsers use.  In addition, 
+running the site through validation will also help clear up some compatibility issues with browser rendering.  I also like to use a site "Can I use" to see 
+if a style or property it supported in multiple browsers.  Finally, I try to provided vendor specific prefixes for certain properties to ensure they can be 
+rendered properly. Chrome and Safari use -webkit, IE -ms, Mozilla -moz.
+
+IE has always been difficult to design for as it lack to the ability to support some modern scripts and techniques.  I often have to provide hacks to 
+things to get them to work properly.  In addition, one hack for IE6 will not always work for IE7 or IE8 or IE9 or IE11.  Often times you have to provided 
+hacks for every version of IE which can be very tedious.
