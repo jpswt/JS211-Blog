@@ -1,0 +1,88 @@
+1) What's something that's been confusing? How would you explain it to someone else?
+
+The difference between While and Do/While loops can be a little confusing.  Similar to While loops, a Do/While loop variable is declared externally from the 'do"
+statement and "while" condition.  Unlike the While loop, a Do/While loops always execute atleast once, even if the while condition evaluates to false.  This is
+because the "while" condition comes after the "do" statements.  Therefore, the statements will always execute atleast once regardless.
+
+let i = 10;
+do {
+    if ( i % 2 === 0) {
+        console.log(i)
+    }
+    i++
+} while (i <= 5)
+
+The console.log(i) will print out 10.  Even though the condition is false, it will still run through the loop the first time printing i.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2) What is "use strict";? What are the advantages and disadvantages to using it?
+
+Strict mode allows the programmer to place the program in a "strict" context.  This context prevents certain actions from taking place and throwing more 
+exceptions.  This is good as it can catch someone common coding errors, such a a mispelling of a variable that now creates a global variable, throws an
+error when "unsafe" actions are taken such as accessing global actions, and can can disable things that are poorly coded.  This practice is best suited 
+in a project you've started from scratch as well as have the unit testing and linting in place.  
+
+Disadvantages of this could come into play when you implement this an existing project as it could possiblly throw errors in code that previously worked 
+fine, but throws errors in strcit Javascript.  Placing modules that are third party in strict mode could also result in errors being thrown.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3) Explain function hoisting in JavaScript.
+
+Hoisting is the process of moving all function declarations to to the top of the file.  It is done automatically by the javascript engine that is executing 
+the code at runtime.
+
+Example:
+
+A function declaration will console.log 'execute' even with function being called before it is initialized because of hoisting.
+
+execute();
+
+function execute() {
+    console.log('execute')
+}
+
+Result: It will log 'execute'
+
+However with function expressions, if the function execute() is called before it is initialized you  will get a reference error.  It is similar to a constant or 
+variable being used before it is being defined.  It is not moved up to the top via hoisting.
+
+execute();
+
+const execute = function (){
+    console.log('execute')
+}
+
+Result: It will log a reference error: execute is not defined
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4) Explain the importance of standards and standards bodies like ECMA.
+
+The use of standards allows for pages built to have cross browser and platform compatibility.  It allows more easier debugging and troubleshooting if code has
+as standard protocol.  In addition, this standards have played an important role in allowing people with disabilities to have better accessibility to web
+applications.  Standards also allow for compliance with older browsers via backward compatibility.  Another important factor to remember is that most Web standards 
+are designed with forward and backward compatibility in mind. This means that Web pages coded for old versions of the standards will still be supported in 
+new versions of browsers, while Web pages coded for new versions of the standards will gracefully degrade to produce an acceptable result in older browsers.
+Finally, these standards offer a set of rules that every developer can follow and understand.  When we build a site according to standards, 
+someone else will be able to pick up where w left off.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5) What actions have you personally taken on recent projects to increase maintainability of your code?
+
+In order to increase maintainability I have started to comment more of my code and make it a lot easier to go back to see why I did things they way I did.  
+In addition, I have also tried to form a coding style in which I do steps and procedures the same way every time so as I don't get thrown off by some
+long stretch of code with weird formatting and indentions.  I also use clear and concise names for variables, arrays, function etc to ensure others can easily
+ascertain what they represent. Finally, I often find myself code and re-code to reduce and avoid redundancy if possible.  Once I get something working, I try 
+to find ways to make it more efficient.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6) Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+
+The primary reason why global variables are discouraged in javascript is because, in javascript all code share a single global namespace, also 
+javascript has implied global variables i.e. variables which are not explicitly declared in local scope are automatically added to global namespace. 
+Relying too much on global variables can result in collisions between various scripts on the same page.
+
+In additon, using global variable can result in your code being difficult to read when its calling a varaibale globally.  Its best to define it locally with the 
+scope to make it easier to understand what your code is doing, rather than calling something that is used outside of the scope, especially with large codeline
+projects.
