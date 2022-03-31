@@ -17,7 +17,7 @@ The console.log(i) will print out 10.  Even though the condition is false, it wi
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 2) What is "use strict";? What are the advantages and disadvantages to using it?
 
-Strict mode allows the programmer to place the program in a "strict" context.  This context aligns with modern standards while still allowing browers to 
+Strict mode allows the programmer to place the program in a "strict" context.  This context aligns with modern standards while still allowing browsers to 
 support backward compatibility. This modern context prevents certain actions from taking place and throwing more exceptions.  This is good as it can catch someone 
 common coding errors, such a a mispelling of a variable that now creates a global variable, throws an error when "unsafe" actions are taken such as accessing 
 global actions, and can can disable things that are poorly coded.  This practice is best suited in a project you've started from scratch as well as have the unit 
