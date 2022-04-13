@@ -1,0 +1,101 @@
+QUESTION 1) Describe one thing you're learning in class today.
+
+Today in class we learned about the DOM and how to manipulate it via javascript.  The Document Object Model (DOM) is a programming interface for web 
+documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and 
+objects; that way, programming languages can interact with the page.
+
+To manipulate an element inside the DOM, you first need to select it and store a reference to it inside a variable. 
+Example: let listItem = document.querySelector('li'), which selects the first <li> in the html page.  
+
+Once the element reference stored as a variable, we can start to manipulate it using properties and methods available to it 
+
+Example, change the text of the li:
+listItem.textContent = 'List Item 1'
+
+Elements can often be referenced in many ways such as:
+ getElementById - get an element by its id
+ getClassName - get an element by its class 
+ getElementByTagName  - get and element by its tag name
+ querySelectorAll - get all elements on the html page
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) What's the difference between: function Person(){}, var person = Person(), and var person = new Person()?
+
+function Person(){} is a function declaration.  A function named "Person" with no parameter.
+
+var person = Person() is a function expression.  It is a variable named "person" that is referencing the above mentioned "Person" function.
+
+var person = new Person() is the function constructor.  It is a variable named "person" that is initiating a new object of the Person class constructor. 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What's the difference between an "attribute" and a "property"?
+
+ In terms of both with regards to HTML, attributes are defined by the html code and properties are accessed by the DOM.  You can define attributes on your 
+ HTML elements. Then, once the browser parses your code, a corresponding DOM node will be created. This node is an object, and therefore it has properties.
+
+ For example:
+
+ <button type="button" value="Submit"></button>
+
+ This has two attributes, text and value.  It also two properties, text and value.
+
+ The type property reflects the property for the type attribute.  Retrieving the property reads the type attribute value and setting the property value will
+ write the property value.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What language constructions do you use for iterating over object properties and array items?
+
+For Objects:
+
+a. for-in loops - for (var property in obj) { console.log(property); }. However, this will also iterate through its inherited properties, and you will add an 
+obj.hasOwnProperty(property) check before using it.
+
+b. Object.keys() - Object.keys(obj).forEach(function (property) { ... }). Object.keys() is a static method that will lists all enumerable properties of the object 
+that you pass it.
+
+c. Object.getOwnPropertyNames() - Object.getOwnPropertyNames(obj).forEach(function (property) { ... }). Object.getOwnPropertyNames() is a static method that 
+will lists all enumerable and non-enumerable properties of the object that you pass it.
+
+
+For Arrays:
+
+a. for loops - for (var i = 0; i < arr.length; i++). The common pitfall here is that var is in the function scope and not the block scope and most of the time you 
+would want block scoped iterator variable. ES2015 introduces let which has block scope and it is recommended to use that instead. 
+So this becomes: for (let i = 0; i < arr.length; i++).
+
+b. forEach - arr.forEach(function (el, index) { ... }). This construct can be more convenient at times because you do not have to use the index if all you need 
+is the array elements. There are also the every and some methods which will allow you to terminate the iteration early.
+
+c. for-of loops - for (let elem of arr) { ... }. ES6 introduces a new loop, the for-of loop, that allows you to loop over objects that conform to the iterable 
+protocol such as String, Array, Map, Set, etc. It combines the advantages of the for loop and the forEach() method. The advantage of the for loop is that you can 
+break from it, and the advantage of forEach() is that it is more concise than the for loop because you don't need a counter variable. With the for-of loop, you get 
+both the ability to break from a loop and a more concise syntax.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) What is the event loop?
+
+The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty 
+and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What is the difference between call stack and task queue?
+
+A task queue is a queue of things to do (usually stored persistent) and a call stack is a stack of routines. A task queue would have variables assigned to it, 
+and a call stack would be the abstract implementation. A task could "call" a method from a call stack.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) What are the differences between ES6 classes and ES5 function constructors?
+
+In the ES5 version, there are no classes; a function is used to make an object directly. However, the ES6 version uses the keyword class to define a class.
+
+In the ES5 version, constructor functions are declared using the function keyword, with the body of the code initializing the object properties upon its 
+creation. The ES6 version, on the other hand, uses the constructor keyword to declare the constructor function which runs on object creation. This new 
+syntax is clearer, hence making it easier to use.
+

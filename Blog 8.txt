@@ -1,0 +1,122 @@
+QUESTION 1) Describe one thing you're learning in class today.
+
+Today in class, we learned about higher order functions.  A higher-order function is a function that accepts functions as parameters and/or returns a 
+function.  This becomes very useful when writing code for scalability, flexibility and maintainability.  
+
+examples of HOF:
+
+.filter() - The filter() method creates a new array with all elements that pass the test implemented by the provided function. The filter method is passed
+a callback function as its only parameter. 
+
+.map() - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.  it takes a 
+callback function, () => {}, as its only parameter and passes every value/element in the array into the callback function. 
+
+.forEach() - The forEach() method executes a provided function once for each array element. It takes a callback function, () => {}, as its only parameter 
+and passes every value/element in the array into the callback function. 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Can you describe the main difference between a forEach loop and a .map() loop and why you would pick one versus the other?
+
+map() is used to transform each element of an array and creating a new array, while forEach is used to run a function on each element without 
+changing the array.
+
+Since .map() doesn't change the source array, we can say that it’s an immutable method. While, the .forEach() does change the source array, it is referred
+to as a mutable method.
+
+forEach() is good for when you need to do some action with each element of the array, while the map method is used for creating a new array, and thus, 
+it’s chainable. You can call a number of map operations one after the other.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) Describe event bubbling.
+
+When an event is triggered from an element, the event handler / event listener tied to that event is called. When an event is fired on an element that has 
+parent elements, it runs through a “bubbling” phase.  In event bubbling, the event is first captured and handled by the innermost element and then 
+propagated to outer elements.
+
+Example:
+
+<form onclick="alert('form')">FORM
+  <div onclick="alert('div')">DIV
+    <p onclick="alert('p')">P</p>
+  </div>
+</form>
+
+A click on the inner <p> first runs onclick:
+
+1. On that <p>.
+2. Then on the outer <div>.
+3. Then on the outer <form>.
+4. And so on upwards till the document object.
+
+So if we click on <p>, then we’ll see 3 alerts: p → div → form.
+
+The process is called “bubbling”, because events “bubble” from the inner element up through parents like a bubble in the water.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What is the definition of a higher-order function?
+
+A “higher-order function” is a function that accepts functions as parameters and/or returns a function.
+
+Examples are the .map(), .forEach(). filter()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) ES6 Template Literals offer a lot of flexibility in generating strings. Can you give an example?
+
+Without template literals, when you want to combine output from expressions with strings, you’d concatenate them using the "+" (plus sign) 
+(addition operator):
+
+let num1 = 5
+let num2 = 5
+
+console.log('The sum of' + num1 + ' and' + num2 + ' is equal to' + (num1 + num2))
+
+
+With template literals, you can avoid the concatenation operator — and improve the readability of your code.
+
+console.log(`The sum of ${num1} and ${num2} is equal to ${num1 + num2})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What Is an associative array in JavaScript?
+
+Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys. They do not have a length property like a normal 
+array and cannot be traversed using a normal for loop. 
+
+
+Example: 
+var array = { "alpha": 1, "beta": 2, "gama": 3 };
+var x = array["beta"];
+document.write(x);
+
+Output:
+alpha=1
+beta=2
+gamma=3
+
+1. Unlike simple arrays, we use curly braces instead of square brackets.
+2. The content or values of associative arrays is accessed by keys.
+3. An associative array is an array with string keys rather than numeric keys.
+4. Associative arrays are dynamic objects that the user redefines as needed. When you assign values ​​to keys in a variable of type Array, the array is 
+transformed into an object, and it loses the attributes and methods of Array.
+5. The length attribute has no effect because the variable is no longer of the Array type.
+6. We can create an associative array with the Object reserved word, then and assign keys and values:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) Why should you never use new Array in JavaScript?
+
+The first example will give you you an array with a single element of the value 10 in it; while the second example with give you an array with 
+10 empty elements in it. 
+
+let arr = [10]; 
+let arr = new Array(10); 
+
+Yet:
+
+let arr = [2, 10]; 
+let arr = new Array(2, 10); 
+Will both give you the same result - an array with 2 and 10 in it!
+
