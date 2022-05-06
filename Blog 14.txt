@@ -1,0 +1,187 @@
+QUESTION 1) Tell us about something you learned this week.
+
+This week we learned about API and how to access data using fetch.  An API(application programming interface) is a for different
+computer programs to talk to each other.  
+
+fetch() takes a URL to request data from then its response, usually shortened as res, is turned into Javascript Object Notation, 
+JSON, with the method: .json() like so: res.json(). then, the now JSON formatted response is passed to a callback function as a 
+named argument and the callback function does something with it. 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Why would you use something like the load event? Does this event have disadvantages? Do you know any 
+alternatives, and why would you use those?
+
+DOMContentLoaded
+This event fires when the DOM from the inintial HTML has finished loading and parsing. It does not wait for external 
+resources to load. This is a good event to hook to when you will be modifying the page's content, but you need to be 
+sure that any structure you might need has already loaded.
+
+load
+This window event fires when all resources for the page have loaded, including subframes, images and style sheets. 
+Because of its dependency on additional requests and possibly external servers, it can take significantly longer to fire 
+than DOMContentLoaded.
+
+In the interest of speed and taking care of our users though, this is an ideal event to listen to to load our ads. They're 
+not relevant to our content and usually just irritate anyone reading, so it's best to wait until the important pieces of 
+our site have loaded and only then loading ads.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What are the advantages and disadvantages of using Ajax?
+
+ADVANTAGES:
+
+1. Reduce server traffic and increase speed
+The first and foremost advantage of Ajax is its ability to improve the performance and usability of web applications.
+Ajax techniques allow applications to render without data, which reduces the server traffic inside requests. That being said, 
+web developers can lower the time consumption on both side’s responses significantly.
+
+As a result, your web’s visitors will never have to see a white window and wait for pages to refresh with Ajax implementation.
+
+2. Enable asynchronous calls
+Ajax benefits web developers in how its framework can be used for lazy loading. Those who don’t know what Lazy Loading is are 
+an optimization technique that’s widely used for online content.
+
+In essence, Ajax allows its users to make asynchronous calls to the web server without reloading the whole web page. As a web 
+visitor, you don’t have to wait for the entire page to load entirely in order to access the entire page content.
+
+The concept of lazy loading assists in loading only the required section and delays the remaining, until it is needed by users. 
+Thus, Ajax Lazy Loading not only improves a web page load it also has a positive impact on user experience and conversion rates.
+
+3. XMLHttpRequest
+XMLHttpRequest is a request type widely used for sending a request to Ajax pages. You can also call it with a different name: 
+Asynchronous HTTP request. It plays a vital role in the implementation of Ajax techniques for web development.
+
+XMLHttpRequest transfers and manipulates the XML data to and from a web service using HTTP. Its purpose is to establish an 
+independent connection between the webpage’s client-side and server.
+
+4. Reduce bandwidth usage
+One more advantage of Ajax comes from the bandwidth usage. This action is effective in improving web performance and load 
+speed as well.
+
+Ajax makes the best use of the server’s bandwidth by fetching particle contents instead of transmitting the entire page’s content. 
+This means that you can bring data from the database and store it into the database to perform background without reloading the page.
+
+5. Form Validation
+In contrast to traditional form submission, where client-side validations occur after submission, the AJAX method enables precise 
+and immediate form validation. AJAX provides speed, which is also one of its significant benefits.
+
+DISADVANTAGES:
+
+1. Open-source. View source is allowed, and anyone can view the code source written for Ajax, which makes it less secure compared 
+to other technologies
+
+2. Search Engines cannot index Ajax pages can not be indexed by Google as well as other search engines
+
+3. The usage of Ajax can cause difficulties for your web pages to debug as well as make them prone to possible security issues in 
+the future
+
+4. Most importantly, Ajax has a considerable dependency on JavaScript, so only browsers that support Javascripts or XMLHttpRequest 
+can use pages with Ajax techniques
+
+5. Users will find it challenging to bookmark a specific state of the application due to the dynamic web page
+
+6. From the users’ perspective, when you click the back button on the browser, you may not return to the previous state of the 
+page but the entire page. This happens because the pages with successive Ajax requests are unable to register with the browser’s 
+history.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) Explain how JSONP works (and how it's not really Ajax).
+
+JSONP(as in “JSON with Padding”) is a method commonly used to bypass the cross-domain policies in web browsers (you are not allowed 
+to make AJAX requests to a webpage perceived to be on a different server by the browser). JSON and JSONP behave differently on both 
+the client and the server. JSONP requests are not dispatched using the XMLHTTPRequest, instead a <script> tag is created, whose source 
+is set to the target URL. This script tag is then added to the DOM (normally the <head>). 
+
+EXAMPLE: 
+Say you're on domain example.com, and you want to make a request to domain example.net. To do so, you need to cross domain boundaries, 
+a no-no in most of browserland.
+
+The one item that bypasses this limitation is <script> tags. When you use a script tag, the domain limitation is ignored, but 
+under normal circumstances, you can't really do anything with the results, the script just gets evaluated.
+
+Enter JSONP. When you make your request to a server that is JSONP enabled, you pass a special parameter that tells the server a 
+little bit about your page. That way, the server is able to nicely wrap up its response in a way that your page can handle.
+
+For example, say the server expects a parameter called callback to enable its JSONP capabilities. Then your request would look like:
+
+http://www.example.net/sample.aspx?callback=mycallback
+
+Without JSONP, this might return some basic JavaScript object, like so:
+
+{ foo: 'bar' }
+
+However, with JSONP, when the server receives the "callback" parameter, it wraps up the result a little differently, returning 
+something like this:
+
+mycallback({ foo: 'bar' });
+
+As you can see, it will now invoke the method you specified. So, in your page, you define the callback function:
+
+mycallback = function(data){
+  alert(data.foo);
+};
+
+And now, when the script is loaded, it'll be evaluated, and your function will be executed. Voila, cross-domain requests!
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) Explain Ajax in as much detail as possible.
+
+AJAX is the use of JavaScript to send and receive using HTTP without reloading the page. AJAX is an acronym for asynchronous 
+JavaScript and XML, and is used as a technique for creating client-side asynchronous web applications. AJAX is considered a group 
+of technologies. HTML and CSS can be used in combination to mark up and style information. JavaScript and the XMLHttpRequest object 
+provide the method for exchanging data asynchronously between the browser and the server.
+
+AJAX, sends and retrieves data from a server asynchronously. This enables the web application to continue running and dynamically display. It allows the user to interact with the information presented on the page, avoiding full page reloads.
+
+The image below shows the process the execution of AJAX.
+
+A user interaction in the browser triggers the event, such as a button click
+The AJAX call fires. This creates and AJAX request, browsers use the XMLHttpRequest object. When the server responds to the browser’s request, the same XMLHttpRequest object will process the result.
+3. The server-side script receives the input from JavaScript, and processes the data.
+
+4. After the data is processed, the script sends the data back to the original client-side page that made the request via XML
+
+5. Once the data is received, a second JavaScript callback function, is called this function captures the data, and updates the web page accordingly.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) What does it mean when we talk about time complexity of an algorithm?
+
+The time complexity is the number of operations an algorithm performs to complete its task (considering that each operation 
+takes the same amount of time). The algorithm that performs the task in the smallest number of operations is considered the most 
+efficient one in terms of the time complexity. However, the space and time complexity are also affected by  factors such as your 
+operating system and hardware, but we are not including them in this discussion.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) What are the three laws of algorithm recursion?
+
+All recursive algorithms must obey three important laws:
+
+1. A recursive algorithm must call itself, recursively.
+2. A recursive algorithm must have a base case.
+3. A recursive algorithm must change its state and move toward the base case.
+
+A base case is the condition that allows the algorithm to stop recursing.
+    - A base case is typically a problem that is small enough to solve directly.
+    - In the factorial algorithm the base case is n=1.
+
+We must arrange for a change of state that moves the algorithm toward the base case.
+
+    - A change of state means that some data that the algorithm is using is modified.
+    - Usually the data that represents our problem gets smaller in some way.
+    - In the factorial n decreases.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) How do you see yourself growing as a web developer?
+
+I see myself growing as a developer by pushing myself to learn techniques and ways of doing things.  I often try to recreate designs
+and code exercises to really figure out how things are working and find better and efficient ways of doing them.  I also try to learn
+frameworks and libraries for web development that will help speed up my process although I can be stuck in wanting to design things from scratch.  
+Looking forward to learning React and the possibilities it has when it comes to frontend design.
+

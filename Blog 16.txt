@@ -1,0 +1,107 @@
+QUESTION 1) Tell us about something you learned this week.
+
+This week we learned about recursion.  Recursion, put simply, is when a function calls itself until a condition is met and 
+then it stops calling itself. 
+
+A recursive function must have a condition to stop calling itself. Otherwise, the function is called indefinitely.
+
+Once the condition is met, the function stops calling itself. This is called a base condition.
+
+To prevent infinite recursion, you can use if...else statement (or similar approach) where one branch makes the recursive call, and the other doesn't.
+
+So, it generally looks like this.
+
+function recurse() {
+    if(condition) {
+        recurse();
+    }
+    else {
+        // stop calling recurse()
+    }
+}
+
+recurse(); 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Explain Function.prototype.bind()
+
+Bind creates a new function that will force the this inside the function to be the parameter passed to bind().
+
+Here's an example that shows how to use bind to pass a member method around that has the correct this:
+
+var myButton = {
+  content: 'OK',
+  click() {
+    console.log(this.content + ' clicked');
+  }
+};
+
+myButton.click();
+
+var looseClick = myButton.click;
+looseClick(); // not bound, 'this' is not myButton - it is the globalThis
+
+var boundClick = myButton.click.bind(myButton);
+boundClick(); // bound, 'this' is myButton
+
+Which prints out:
+
+OK clicked
+undefined clicked
+OK clicked
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) Describe event bubbling.
+
+Event bubbling is a method of event propagation in the HTML DOM API when an event is in an element inside another element, and 
+both elements have registered a handle to that event. It is a process that starts with the element that triggered the event and 
+then bubbles up to the containing elements in the hierarchy. In event bubbling, the event is first captured and handled by the 
+innermost element and then propagated to outer elements.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What's the difference between the window load event and document DOMContentLoaded event?
+
+The DOMContentLoaded event fires when all the nodes in the page have been constructed in the DOM tree. 
+
+The load event fires when all resources such as images and sub-frames are loaded completely.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) Describe the call stack.
+
+The call stack is used by JavaScript to keep track of multiple function calls. It is like a real stack in data structures where
+data can be pushed and popped and follows the Last In First Out (LIFO) principle. We use call stack for memorizing which function 
+is running right now. The below example demonstrates the call stack.
+
+function f1() {
+  console.log('Hi by f1!');
+}
+  
+function f2() {
+  f1();
+  console.log('Hi by f2!');
+}
+  
+f2();
+
+Step 1: When the code loads in memory, the global execution context gets pushed in the stack.
+
+Step 2: The f2() function gets called, and the execution context of f2() gets pushed into the stack.
+
+Step 3: The execution of f2() starts and during its execution, the f1() function gets called inside the f2() function. This causes 
+the execution context of f1() to get pushed in the call stack.
+
+Step 4: Now the f1() function starts executing. A new stack frame of the console.log() method will be pushed to the stack.
+
+Step 5: When the console.log() method runs, it will print “Hi by f1” and then it will be popped from the stack. The execution 
+context go will back to the function and now there not any line of code that remains in the f1() function, as a result, it will 
+also be popped from the call stack.
+
+Step 6: This will similarly happen with the console.log() method that prints the line “Hi by f2” and then finally the function 
+f2() would finish and would be pushed off the stack.
+
+
+
